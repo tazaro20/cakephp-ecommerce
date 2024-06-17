@@ -1,10 +1,12 @@
 <?php
-$title = 'CakePHP: the rapid development php framework';
+$title = 'Dashboard';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"  />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
     <?= $this->Html->meta('icon') ?>
     <?= $this->Html->charset() ?>
     <title>
@@ -22,21 +24,27 @@ $title = 'CakePHP: the rapid development php framework';
         </div>
         <ul class="sidebar-nav">
             <li>
-                <?= $this->Html->link('<i class="fas fa-tachometer-alt"></i> Tableau de bord', ['controller' => 'Dashboard', 'action' => 'index'], ['escape' => false]) ?>
+                <?= $this->Html->link('<i class="fas fa-tachometer-alt"></i> Dashboard', ['controller' => 'Dashboard', 'action' => 'index'], ['escape' => false]) ?>
             </li>
             <li>
-                <?= $this->Html->link('<i class="fas fa-users"></i> Utilisateurs', ['controller' => 'Users', 'action' => 'index'], ['escape' => false]) ?>
+                <?= $this->Html->link('<i class="fas fa-users"></i> Users', ['controller' => 'Users', 'action' => 'index'], ['escape' => false]) ?>
             </li>
             <li>
-                <?= $this->Html->link('<i class="fas fa-handshake"></i>Entreprises', ['controller' => 'Partners', 'action' => 'index'], ['escape' => false]) ?>
+                <?= $this->Html->link('<i class="fas fa-handshake"></i>Company', ['controller' => 'Partners', 'action' => 'index'], ['escape' => false]) ?>
             </li>
             <li>
-                <?= $this->Html->link('<i class="fa-solid fa-broom"></i></i>Entreprises et Services', ['controller' => 'parternservices', 'action' => 'index'], ['escape' => false]) ?>
+                <?= $this->Html->link('<i class="fa-solid fa-briefcase"></i>Services', ['controller' => 'Services', 'action' => 'index'], ['escape' => false]) ?>
             </li>
-            <li class="logout">
-                <?= $this->Html->link('<i class="fas fa-sign-out-alt"></i> Déconnexion', ['controller' => 'Users', 'action' => 'logout'], ['escape' => false]) ?>
+            <li>
+                <?= $this->Html->link('<i class="fa-solid fa-cart-shopping"></i></i>Comandes', ['controller' => 'Requests', 'action' => 'index'], ['escape' => false]) ?>
+            </li>
+            <li>
+                <?= $this->Html->link('<i class="fa-solid fa-broom"></i></i>Company and Services', ['controller' => 'PartnerServices', 'action' => 'index'], ['escape' => false]) ?>
             </li>
         </ul>
+        <div class="btn btn-danger logout-btn">
+            <?= $this->Html->link('<i class="fas fa-sign-out-alt"></i> Logout', ['controller' => 'Users', 'action' => 'logout'], ['escape' => false]) ?>
+        </div>
     </div>
 
     <!-- Navbar -->
@@ -65,7 +73,9 @@ $title = 'CakePHP: the rapid development php framework';
         </div>
     </div>
 </div>
-
 <?= $this->Html->script('admin.js') ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js"></script>
 </body>
 </html>

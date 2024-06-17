@@ -3,12 +3,11 @@ declare(strict_types=1);
 
 namespace App\Controller\Admin;
 
-
 /**
- * Users Controller
+ * Partners Controller
  *
  */
-class UsersController extends AppController
+class PartnersController extends AppController
 {
     /**
      * Index method
@@ -17,23 +16,23 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $query = $this->Users->find();
-        $users = $this->paginate($query);
+        $query = $this->Partners->find();
+        $partners = $this->paginate($query);
 
-        $this->set(compact('users'));
+        $this->set(compact('partners'));
     }
 
     /**
      * View method
      *
-     * @param string|null $id User id.
+     * @param string|null $id Partner id.
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $user = $this->Users->get($id, contain: []);
-        $this->set(compact('user'));
+        $partner = $this->Partners->get($id, contain: []);
+        $this->set(compact('partner'));
     }
 
     /**
@@ -43,56 +42,56 @@ class UsersController extends AppController
      */
     public function add()
     {
-        $user = $this->Users->newEmptyEntity();
+        $partner = $this->Partners->newEmptyEntity();
         if ($this->request->is('post')) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+            $partner = $this->Partners->patchEntity($partner, $this->request->getData());
+            if ($this->Partners->save($partner)) {
+                $this->Flash->success(__('The partner has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('The partner could not be saved. Please, try again.'));
         }
-        $this->set(compact('user'));
+        $this->set(compact('partner'));
     }
 
     /**
      * Edit method
      *
-     * @param string|null $id User id.
+     * @param string|null $id Partner id.
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function edit($id = null)
     {
-        $user = $this->Users->get($id, contain: []);
+        $partner = $this->Partners->get($id, contain: []);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
-            if ($this->Users->save($user)) {
-                $this->Flash->success(__('The user has been saved.'));
+            $partner = $this->Partners->patchEntity($partner, $this->request->getData());
+            if ($this->Partners->save($partner)) {
+                $this->Flash->success(__('The partner has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('The partner could not be saved. Please, try again.'));
         }
-        $this->set(compact('user'));
+        $this->set(compact('partner'));
     }
 
     /**
      * Delete method
      *
-     * @param string|null $id User id.
+     * @param string|null $id Partner id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $user = $this->Users->get($id);
-        if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
+        $partner = $this->Partners->get($id);
+        if ($this->Partners->delete($partner)) {
+            $this->Flash->success(__('The partner has been deleted.'));
         } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The partner could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);

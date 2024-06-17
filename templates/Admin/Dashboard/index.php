@@ -34,14 +34,24 @@
         </div>
     </div>
 
-    <!-- Card 4 : Placeholder -->
+    <!-- Card 4 : services -->
     <div class="card card-4">
         <div class="card-icon">
-            <i class="fas fa-chart-line"></i>
+            <i class="fa-solid fa-briefcase"></i>
         </div>
         <div class="card-content">
-            <h2>Placeholder</h2>
-            <p>Texte de remplissage</p>
+            <h2>Total de services</h2>
+            <p>40</p>
+        </div>
+    </div>
+    <!--- card 5 : recommendation  --->
+    <div class="card card-5">
+        <div class="card-icon">
+            <i class="fa-solid fa-cart-shopping"></i></i>
+        </div>
+        <div class="card-content">
+            <h2>Total de commande</h2>
+            <p>40</p>
         </div>
     </div>
 </div>

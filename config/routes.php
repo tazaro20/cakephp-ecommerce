@@ -31,7 +31,13 @@ return function (RouteBuilder $routes): void {
     $routes->setRouteClass(DashedRoute::class);
 
     $routes->prefix('Admin', function (RouteBuilder $routes) {
+        $routes->connect('/', ['controller' => 'Admin', 'action' => 'index']);
         $routes->connect('/dashboard', ['controller' => 'Dashboard', 'action' => 'index']);
+        $routes->connect('/users', ['controller' => 'Users', 'action' => 'index']);
+        $routes->connect('/company', ['controller' => 'Partners', 'action' => 'index']);
+        $routes->connect('/command', ['controller' => 'Requests', 'action' => 'index']);
+        $routes->connect('/services', ['controller' => 'Services', 'action' => 'index']);
+        $routes->connect('/company-services', ['controller' => 'PartnerServices', 'action' => 'index']);
         $routes->fallbacks(DashedRoute::class);
     });
 
